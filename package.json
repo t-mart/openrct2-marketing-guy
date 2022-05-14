@@ -1,0 +1,26 @@
+{
+  "name": "openrct2-perpetual-ads",
+  "version": "1.0.0",
+  "description": "Run park/ride advertising perpetually (without cheats).",
+  "scripts": {
+    "dev": "rollup -c rollup.config.ts -w --configPlugin typescript --environment BUILD:development,INSTALL",
+    "build": "rollup -c rollup.config.ts --configPlugin typescript --environment BUILD:production",
+    "install": "rollup -c rollup.config.ts --configPlugin typescript --environment BUILD:production,INSTALL"
+  },
+  "author": "t-mart",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-typescript": "^8.3.2",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "prettier": "^2.6.2",
+    "prettier-plugin-jsdoc": "^0.3.38",
+    "release-it": "^15.0.0",
+    "rollup": "^2.73.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "typescript": "^4.6.4"
+  }
+}

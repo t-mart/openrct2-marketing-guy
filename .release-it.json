@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "after:bump": "npm run build"
+  },
+  "github": {
+    "release": true,
+    "assets": ["dist/*.js"]
+  },
+  "npm": {
+    "publish": false
+  }
+}
