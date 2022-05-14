@@ -6,7 +6,7 @@ import { defineConfig, OutputOptions } from "rollup";
 import typescript from "@rollup/plugin-typescript";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
-import del from "rollup-plugin-delete";
+// import del from "rollup-plugin-delete";
 
 import pkg from "./package.json";
 
@@ -52,10 +52,10 @@ const output = getOutputs(process.env["INSTALL"] !== undefined);
 
 export default async () =>
   defineConfig({
-    input: "./src/registerPlugin.ts",
+    input: "./src/index.ts",
     output,
     plugins: [
-      del({ targets: output.flatMap((o) => (o.file ? [o.file] : [])), runOnce: true }),
+    //   del({ targets: output.flatMap((o) => (o.file ? [o.file] : [])), runOnce: true }),
       replace({
         preventAssignment: true,
         values: {

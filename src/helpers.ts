@@ -10,9 +10,8 @@ export const isMechanic = (staff: Staff): boolean => staff.staffType === 'mechan
 export const isSecurity = (staff: Staff): boolean => staff.staffType === 'security';
 export const isEntertainer = (staff: Staff): boolean => staff.staffType === 'entertainer';
 
-export const getPeeps = (): Peep[] => map.getAllEntities('peep');
-export const getGuests = (): Guest[] => getPeeps().filter(isGuest);
-export const getStaff = (): Staff[] => getPeeps().filter(isStaff);
+export const getGuests = (): Guest[] => map.getAllEntities("guest");
+export const getStaff = (): Staff[] => map.getAllEntities("staff");
 export const getHandymen = (): Staff[] => getStaff().filter(isHandyman);
 export const getMechanics = (): Staff[] => getStaff().filter(isMechanic);
 export const getSecurity = (): Staff[] => getStaff().filter(isSecurity);
