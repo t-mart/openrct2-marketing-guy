@@ -2339,16 +2339,16 @@ declare global {
         LabelWidget | ListViewWidget | SpinnerWidget | TextBoxWidget | ViewportWidget;
 
     interface WidgetBase {
-        readonly window?: Window;
+        readonly window?: Window | undefined;
         type: WidgetType;
         x: number;
         y: number;
         width: number;
         height: number;
-        name?: string;
-        tooltip?: string;
-        isDisabled?: boolean;
-        isVisible?: boolean;
+        name?: string | undefined;
+        tooltip?: string | undefined;
+        isDisabled?: boolean | undefined;
+        isVisible?: boolean | undefined;
     }
 
     interface ButtonWidget extends WidgetBase {
@@ -2357,47 +2357,47 @@ declare global {
          * Whether the button has a 3D border.
          * By default, text buttons have borders and image buttons do not but it can be overridden.
          */
-        border?: boolean;
-        image?: number;
-        isPressed?: boolean;
-        text?: string;
-        onClick?: () => void;
+        border?: boolean | undefined;
+        image?: number | undefined;
+        isPressed?: boolean | undefined;
+        text?: string | undefined;
+        onClick?: (() => void) | undefined;
     }
 
     interface CheckboxWidget extends WidgetBase {
         type: "checkbox";
-        text?: string;
-        isChecked?: boolean;
-        onChange?: (isChecked: boolean) => void;
+        text?: string | undefined;
+        isChecked?: boolean | undefined;
+        onChange?: ((isChecked: boolean) => void) | undefined;
     }
 
     interface ColourPickerWidget extends WidgetBase {
         type: "colourpicker";
-        colour?: number;
-        onChange?: (colour: number) => void;
+        colour?: number | undefined;
+        onChange?: ((colour: number) => void) | undefined;
     }
 
     interface CustomWidget extends WidgetBase {
         type: "custom";
-        onDraw?: (this: CustomWidget, g: GraphicsContext) => void;
+        onDraw?: ((this: CustomWidget, g: GraphicsContext) => void) | undefined;
     }
 
     interface DropdownWidget extends WidgetBase {
         type: "dropdown";
-        items?: string[];
-        selectedIndex?: number;
-        onChange?: (index: number) => void;
+        items?: string[] | undefined;
+        selectedIndex?: number | undefined;
+        onChange?: ((index: number) => void) | undefined;
     }
 
     interface GroupBoxWidget extends WidgetBase {
         type: "groupbox";
-        text?: string;
+        text?: string | undefined;
     }
 
     interface LabelWidget extends WidgetBase {
         type: "label";
-        text?: string;
-        textAlign?: TextAlignment;
+        text?: string | undefined;
+        textAlign?: TextAlignment | undefined;
     }
 
     type TextAlignment = "left" | "centred";
@@ -2407,19 +2407,19 @@ declare global {
     type ScrollbarType = "none" | "horizontal" | "vertical" | "both";
 
     interface ListViewColumn {
-        canSort?: boolean;
-        sortOrder?: SortOrder;
-        header?: string;
-        headerTooltip?: string;
-        width?: number;
-        ratioWidth?: number;
-        minWidth?: number;
-        maxWidth?: number;
+        canSort?: boolean | undefined;
+        sortOrder?: SortOrder | undefined;
+        header?: string | undefined;
+        headerTooltip?: string | undefined;
+        width?: number | undefined;
+        ratioWidth?: number | undefined;
+        minWidth?: number | undefined;
+        maxWidth?: number | undefined;
     }
 
     interface ListViewItemSeperator {
         type: "seperator";
-        text?: string;
+        text?: string | undefined;
     }
 
     type ListViewItem = ListViewItemSeperator | string[];
@@ -2431,38 +2431,38 @@ declare global {
 
     interface ListViewWidget extends WidgetBase {
         type: "listview";
-        scrollbars?: ScrollbarType;
-        isStriped?: boolean;
-        showColumnHeaders?: boolean;
-        columns?: ListViewColumn[];
-        items?: string[] | ListViewItem[];
-        selectedCell?: RowColumn;
-        readonly highlightedCell?: RowColumn;
-        canSelect?: boolean;
+        scrollbars?: ScrollbarType | undefined;
+        isStriped?: boolean | undefined;
+        showColumnHeaders?: boolean | undefined;
+        columns?: ListViewColumn[] | undefined;
+        items?: string[] | ListViewItem[] | undefined;
+        selectedCell?: RowColumn | undefined;
+        readonly highlightedCell?: RowColumn | undefined;
+        canSelect?: boolean | undefined;
 
-        onHighlight?: (item: number, column: number) => void;
-        onClick?: (item: number, column: number) => void;
+        onHighlight?: ((item: number, column: number) => void) | undefined;
+        onClick?: ((item: number, column: number) => void) | undefined;
     }
 
     interface SpinnerWidget extends WidgetBase {
         type: "spinner";
-        text?: string;
+        text?: string | undefined;
 
-        onDecrement?: () => void;
-        onIncrement?: () => void;
-        onClick?: () => void;
+        onDecrement?: (() => void) | undefined;
+        onIncrement?: (() => void) | undefined;
+        onClick?: (() => void) | undefined;
     }
 
     interface TextBoxWidget extends WidgetBase {
         type: "textbox";
-        text?: string;
-        maxLength?: number;
-        onChange?: (text: string) => void;
+        text?: string | undefined;
+        maxLength?: number | undefined;
+        onChange?: ((text: string) => void) | undefined;
     }
 
     interface ViewportWidget extends WidgetBase {
         type: "viewport";
-        viewport?: Viewport;
+        viewport?: Viewport | undefined;
     }
 
     interface Window {

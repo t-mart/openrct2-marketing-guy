@@ -1,6 +1,7 @@
-# openrct2-perpertual-ads
+# openrct2-marketing-guy
 
-Run park/ride advertising perpetually (without cheats).
+The last marketing guy was too inflexible, so we fired him and got this new marketing guy. He lets
+us start campaigns that are really long.
 
 ## Development
 
@@ -14,3 +15,8 @@ will be overwritten):
 - enable_hot_reloading = false
 + enable_hot_reloading = true
 ```
+
+### TODO
+
+- make language consistent and update name. Are we "auto subscribing" "auto renewing", "running"?
+  etc

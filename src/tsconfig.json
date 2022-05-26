@@ -26,6 +26,7 @@
     "noUnusedParameters": true,
     "importsNotUsedAsValues": "error",
     "types": [],
+    "lib": ["ES5"]
   },
   "include": [
     "./**/*.ts", "../lib/**/*.ts",

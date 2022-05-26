@@ -1,11 +1,11 @@
-import main from './main';
+import { startPlugin } from "./main";
 
 registerPlugin({
-  name: '__name__',
-  version: '__version__-__build__',
-  authors: '__author__',
-  type: 'local',
-  licence: '__license__',
+  name: "__name__",
+  version: "__version__-__build__",
+  authors: "__author__",
+  type: "local",
+  licence: "__license__",
   minApiVersion: 52,
-  main,
+  main: startPlugin,
 });

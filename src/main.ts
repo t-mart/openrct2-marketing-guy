@@ -1,21 +1,16 @@
-// we can:
-// see how much it'd cost to purchase a campaign for n weeks
-// purchase a campaign for n weeks
+import { isProduction } from "./build";
+import { ALL_CAMPAIGNS } from "./campaign";
+import { getOptionsWindow } from "./optionsWindow";
 
-// we cannot:
-// check current campaigns
-// maybe add this to the API?
-// maybe just write into openrct the ability to add 255 week long campaigns?
+export const startPlugin = (): void => {
+  if (!isProduction) {
+    // to invalidate old storage formats during development
+    ALL_CAMPAIGNS.forEach(c => c.clearRepeatFromStorage())
+  }
+  ALL_CAMPAIGNS.forEach(c => c.restoreRepeatFromStorage())
 
-
-// possibilities: ride ad campaign to most expensive ride?
-
-const main = (): void => {
-  console.log(new Date().toISOString());
-  // whew, finally. this is how you do it.
-  context.executeAction("parkmarketing", { type: 0, item: 0, duration: 255 }, (result) =>
-    console.log(result)
-  );
+  if (typeof ui !== "undefined") {
+    ui.registerMenuItem("__human_name__", () => getOptionsWindow());
+    // getOptionsWindow()
+  }
 };
-
-export default main;
